@@ -11,36 +11,38 @@ body {
 /* Envelope Screen */
 #envelope-container {
     text-align: center;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 @keyframes pulse {
     0% {
-        transform:scale(1);
+        transform: scale(1);
     }
+
     50% {
         transform: scale(1.1);
     }
+
     100% {
         transform: scale(1);
     }
 }
 
-#envelope{
+#envelope {
     width: 200px;
     animation: pulse 1.5s infinite;
     cursor: pointer;
 }
 
-#letter-container{
+#letter-container {
     display: none;
-    position:fixed;
+    position: fixed;
     inset: 0;
     justify-content: center;
     align-items: center;
 }
 
-.letter-window{
+.letter-window {
     width: 90vw;
     max-width: 800px;
     aspect-ratio: 3/2;
@@ -70,7 +72,7 @@ body {
 
 h1 {
     font-size: 30px;
-    margin:0;
+    margin: 0;
 }
 
 p {
@@ -97,8 +99,8 @@ p {
     position: relative;
 }
 
-.no-wrapper{
-    position:relative;
+.no-wrapper {
+    position: relative;
 }
 
 .btn {
@@ -109,9 +111,9 @@ p {
 
 .yes-btn,
 .no-btn {
-width: 120px;
-height: auto;
-display: inline-block;
+    width: 120px;
+    height: auto;
+    display: inline-block;
 }
 
 .yes-btn {
@@ -128,12 +130,165 @@ display: inline-block;
     cursor: default;
 }
 
-.final-text{
+.final-text {
     font-size: 22px;
     line-height: 1.4;
     text-align: center;
     display: inline-block;
     padding: 10px 20px;
-    background-color: rgba(255,240,240,0.5);
+    background-color: rgba(255, 240, 240, 0.5);
     border-radius: 12px;
+}
+
+/* Rose Rain Effect */
+.rose {
+    position: fixed;
+    font-size: 30px;
+    animation: fall linear;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes sway {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(30px);
+    }
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    body {
+        background-size: cover;
+        background-position: center;
+    }
+
+    #envelope {
+        width: 150px;
+    }
+
+    p {
+        font-size: 24px;
+        padding: 0 10px;
+    }
+
+    .letter-window {
+        width: 95vw;
+        padding: 10px;
+        padding-top: 120px;
+        gap: 5px;
+    }
+
+    h1 {
+        font-size: 20px;
+        padding: 0 10px;
+    }
+
+    .cat {
+        width: 180px;
+        margin: 5px 0;
+    }
+
+    .letter-window.final .cat {
+        width: 140px;
+    }
+
+    .buttons {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .btn,
+    .yes-btn,
+    .no-btn {
+        width: 90px;
+    }
+
+    .final-text {
+        font-size: 16px;
+        padding: 8px 15px;
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    #envelope {
+        width: 120px;
+    }
+
+    p {
+        font-size: 20px;
+    }
+
+    .letter-window {
+        padding-top: 80px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    .cat {
+        width: 150px;
+    }
+
+    .letter-window.final .cat {
+        width: 120px;
+    }
+
+    .btn,
+    .yes-btn,
+    .no-btn {
+        width: 80px;
+    }
+
+    .final-text {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    #envelope {
+        width: 100px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 16px;
+    }
+
+    .cat {
+        width: 130px;
+    }
+
+    .letter-window.final .cat {
+        width: 100px;
+    }
+
+    .btn,
+    .yes-btn,
+    .no-btn {
+        width: 70px;
+    }
+
+    .final-text {
+        font-size: 13px;
+        padding: 5px 10px;
+    }
 }
